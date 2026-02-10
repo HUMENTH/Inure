@@ -1,6 +1,7 @@
 package app.simple.inure.preferences
 
 import app.simple.inure.util.AppUtils
+import app.simple.inure.BuildConfig
 import app.simple.inure.util.CalendarUtils
 import java.util.Date
 
@@ -48,8 +49,11 @@ object TrialPreferences {
     }
 
     fun isAppFullVersionEnabled(): Boolean {
+        // Enable full features automatically in debug builds for local testing
+        if (BuildConfig.DEBUG) return true
+
         return SharedPreferences.getEncryptedSharedPreferences().getBoolean(IS_APP_FULL_VERSION_ENABLED, false) ||
-                CalendarUtils.getDaysBetweenTwoDates(Date(getFirstLaunchDate()), CalendarUtils.getToday()) <= MAX_TRIAL_DAYS
+            CalendarUtils.getDaysBetweenTwoDates(Date(getFirstLaunchDate()), CalendarUtils.getToday()) <= MAX_TRIAL_DAYS
     }
 
     fun isWithinTrialPeriod(): Boolean {
@@ -62,6 +66,9 @@ object TrialPreferences {
     }
 
     fun isFullVersion(): Boolean {
+        // Treat debug builds as full version for development/testing only
+        if (BuildConfig.DEBUG) return true
+
         return SharedPreferences.getEncryptedSharedPreferences().getBoolean(IS_APP_FULL_VERSION_ENABLED, false)
     }
 
