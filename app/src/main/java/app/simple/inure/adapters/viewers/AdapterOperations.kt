@@ -15,7 +15,6 @@ import app.simple.inure.decorations.overscroll.VerticalListViewHolder
 import app.simple.inure.decorations.typeface.TypeFaceTextView
 import app.simple.inure.decorations.views.Button
 import app.simple.inure.enums.AppOpMode
-import app.simple.inure.enums.AppOpScope
 import app.simple.inure.models.AppOp
 import app.simple.inure.util.AdapterUtils
 import app.simple.inure.util.StringUtils.appendFlag
@@ -64,15 +63,6 @@ class AdapterOperations(private val ops: ArrayList<AppOp>, var keyword: String) 
 
                 else -> {
                     appendFlag(holder.getString(R.string.unknown))
-                }
-            }
-
-            when (ops[position].scope) {
-                AppOpScope.UID -> {
-                    appendFlag(holder.getString(R.string.uid))
-                }
-                AppOpScope.PACKAGE -> {
-                    appendFlag(holder.getString(R.string.application))
                 }
             }
 
