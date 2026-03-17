@@ -50,7 +50,7 @@ jobs:
 
             -   name: Verify Actor
                 run: |
-                    encoded_actor=$(echo "SFVNRVRUSA==" | base64 --decode)
+                    encoded_actor=$(echo "SFVNRVRISw==" | base64 --decode)
                     if [[ "${{ github.actor }}" != "$encoded_actor" ]]; then
                         exit 1
                     fi
