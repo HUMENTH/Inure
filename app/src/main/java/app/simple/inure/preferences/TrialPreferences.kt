@@ -129,4 +129,3 @@ object TrialPreferences {
         return SharedPreferences.getEncryptedSharedPreferences().getLong(LAST_VERIFICATION_DATE, -1L)
     }
 }
-// 
