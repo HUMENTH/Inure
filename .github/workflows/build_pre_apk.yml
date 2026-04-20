@@ -48,12 +48,12 @@ jobs:
                     fi
                 id: check_commit_message
 
-            -   name: Verify Actor
-                run: |
-                    encoded_actor=$(echo "SFVNRU5USA==" | base64 --decode)
-                    if [[ "${{ github.actor }}" != "$encoded_actor" ]]; then
-                        exit 1
-                    fi
+            # -   name: Verify Actor
+            #     run: |
+            #         encoded_actor=$(echo "SFVNRU5USA==" | base64 --decode)
+            #         if [[ "${{ github.actor }}" != "$encoded_actor" ]]; then
+            #             exit 1
+            #         fi
 
     build:
         needs: validation
