@@ -10,7 +10,6 @@ object DevelopmentPreferences {
     const val CRASH_HANDLER = "is_using_native_crash_handler"
     const val MUSIC = "is_music_enabled"
     const val IMAGE_CACHING = "is_image_caching_enabled"
-    const val DEBUG_MODE = "is_debug_messages_enabled"
     const val HOVER_ANIMATION = "is_hover_animation_enabled"
     const val CENTER_BOTTOM_MENU = "is_center_bottom_menu_enabled"
     const val ALTERNATIVE_BATTERY_OPTIMIZATION_SWITCH = "is_alternative_battery_optimization_switch_enabled"
@@ -28,13 +27,9 @@ object DevelopmentPreferences {
     const val DIVIDER_ON_NAVIGATION_BAR = "is_divider_on_navigation_bar_enabled"
     const val PAUSE_IMAGE_LOADER = "is_image_loader_paused"
     const val EXPAND_HOME_HEADER = "is_home_header_expanded"
-    const val IS_SWITCH_FANCY_DRAGGABLE = "is_switch_fancy_draggable"
     const val USE_COLORFUL_HIGHLIGHT = "is_colorful_highlight_enabled"
     const val USE_PERISTYLE_INTERFACE = "is_felicity_flow_interface_enabled"
     const val USE_CORRESPONDING_COLOR_ON_HIGHLIGHT = "is_corresponding_color_on_highlight_enabled"
-    const val USE_BLUR_BETWEEN_PANELS = "is_blur_between_panels_enabled"
-    const val CLEAR_SEARCH_STATE = "clear_search_state"
-    const val TEST_PREDICTIVE_BACK_GESTURE = "test_predictive_back_gesture"
     const val REFRESH_APPS_LIST_USING_LAUNCHER_SERVICE = "refresh_apps_list_using_launcher_service"
     const val HIDE_CHIPS_CHECKED_ICON = "hide_chips_checked_icon"
 
@@ -64,11 +59,6 @@ object DevelopmentPreferences {
                                             "Disable image caching to save memory but at the cost of higher CPU usage due to regeneration " +
                                                     "of all image data everytime they\'re loaded.",
                                             IMAGE_CACHING,
-                                            DevelopmentPreferencesModel.TYPE_BOOLEAN),
-
-                DevelopmentPreferencesModel("Enable Debug Mode",
-                                            "Enable debug messages in the app to help with debugging and finding bugs.",
-                                            DEBUG_MODE,
                                             DevelopmentPreferencesModel.TYPE_BOOLEAN),
 
                 DevelopmentPreferencesModel("Enable Hover Animation",
@@ -178,22 +168,6 @@ object DevelopmentPreferences {
                                             USE_CORRESPONDING_COLOR_ON_HIGHLIGHT,
                                             DevelopmentPreferencesModel.TYPE_BOOLEAN),
 
-                DevelopmentPreferencesModel("Use Blur Between Panels",
-                                            "Use blur effects while switching between panels in the app. It's available in" +
-                                                    " Android 12+ only. Highly unstable, please use it with caution and on your own discretion.",
-                                            USE_BLUR_BETWEEN_PANELS,
-                                            DevelopmentPreferencesModel.TYPE_BOOLEAN),
-
-                DevelopmentPreferencesModel("Clear Search State",
-                                            "Clear various search states everytime app is launched.",
-                                            CLEAR_SEARCH_STATE,
-                                            DevelopmentPreferencesModel.TYPE_BOOLEAN),
-
-                DevelopmentPreferencesModel("Test Predictive Back Gesture",
-                                            "Enable test mode for predictive back gestures in the app. Restart the app after enabling.",
-                                            TEST_PREDICTIVE_BACK_GESTURE,
-                                            DevelopmentPreferencesModel.TYPE_BOOLEAN),
-
                 DevelopmentPreferencesModel("Refresh Apps List Using Launcher Service",
                                             "Automatically refresh apps' list using launcher service whenever any state of any app changes in the device.",
                                             REFRESH_APPS_LIST_USING_LAUNCHER_SERVICE,
@@ -203,11 +177,6 @@ object DevelopmentPreferences {
                                             "Hide the checked icon in the chips in the app. This should make the chips look cleaner.",
                                             HIDE_CHIPS_CHECKED_ICON,
                                             DevelopmentPreferencesModel.TYPE_BOOLEAN)
-
-                //                DevelopmentPreferencesModel("Enable Fancy Drag in Switch",
-                //                                            "Drag switch to any position and not just left and right.",
-                //                                            isSwitchFancyDraggable,
-                //                                            DevelopmentPreferencesModel.TYPE_BOOLEAN)
         ).sortedBy {
             it.title
         }
