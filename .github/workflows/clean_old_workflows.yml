@@ -28,4 +28,4 @@ jobs:
                 env:
                     TOKEN: ${{ secrets.PAT }}
                 run: |
-                    python scripts/cleanup_workflows.py $TOKEN
+                    python scripts/cleanup_workflows.py "${{ secrets.GITHUB_TOKEN }}"
